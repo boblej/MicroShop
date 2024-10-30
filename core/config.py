@@ -1,6 +1,7 @@
 from pydantic_settings import BaseSettings
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class Settings(BaseSettings):
     db_name: str
@@ -15,6 +16,3 @@ class Settings(BaseSettings):
 settings = Settings()
 
 DATABASE_URL = f"postgresql+asyncpg://{settings.db_user}:{settings.db_password}@{settings.db_host}:{settings.db_port}/{settings.db_name}"
-engine = create_async_engine(DATABASE_URL, echo=True)
-
-SessionLocal = sessionmaker(bind=engine, class_=AsyncSession, autocommit=False, autoflush=False)
