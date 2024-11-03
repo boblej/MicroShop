@@ -41,7 +41,7 @@ async def update_product(
 
 
 @router.patch("/{product_id}/")
-async def update_product(
+async def update_product_partial(
         product_update: ProductUpdatePartial,
         product: Product = Depends(product_by_id),
         session: AsyncSession = Depends(db_helper.session_dependency)):
