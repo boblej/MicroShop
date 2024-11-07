@@ -26,9 +26,9 @@ from core.config import settings
 
 """
 
-# @asynccontextmanager
-# async  def lifespan(app: FastAPI):
-#     yield
+@asynccontextmanager
+async  def lifespan(app: FastAPI):
+    yield
 
 
 app = FastAPI(lifespan=lifespan)
