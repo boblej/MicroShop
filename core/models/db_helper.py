@@ -33,5 +33,5 @@ class DataBaseHelper:
 
 db_helper = DataBaseHelper(
     url=DATABASE_URL,
-    echo=False,
+    echo=True,
 )
